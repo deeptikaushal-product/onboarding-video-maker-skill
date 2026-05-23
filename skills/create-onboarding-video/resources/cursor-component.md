@@ -14,7 +14,7 @@ The skill ships three primitives, all in one file at `src/components/Cursor.tsx`
 
 > **Cursor leads every tap.** A tap ripple alone is not enough — the viewer must see the cursor travel to the target before the ripple fires. No teleporting, no jump-cuts.
 
-If a beat has any tap, click, or selection, render a `Pointer` whose coordinates animate from an off-target start position to the target, and lay a `TapDot` over it at the moment of contact. Always pair the two — they share `x`/`y`.
+If a beat has any tap, click, or selection, render a `Pointer` whose coordinates animate in **one single straight line** from the visual center of the focal area to the interaction point, and lay a `TapDot` over it at the moment of contact. Always pair the two — they share `x`/`y`.
 
 ## Component source
 
@@ -315,7 +315,7 @@ If the next interaction lands on a *different* UI (a new screen, a different for
 | Pointer disappears at the moment of tap | Keep the Pointer visible for ~10 frames *after* `tapAt` so the eye sees the contact, then fade it out. |
 | Pointer placed in a different coord space than the TapDot | Both must live inside the same `position: relative` parent and share `x`/`y`. |
 | Adding a Pointer to a purely illustrative beat | Use a `GlowRing` instead. Cursors imply user input. |
-| Using a single keyframe (a straight line from start to target) | Use 2–3 keyframes so the path bends naturally — straight paths feel mechanical. |
+| Using a curved or multi-segment path within a single move | Each move is one straight line — single normalised `moveProgress` drives both `x` and `y`. No intermediate keyframes that bend the trajectory. |
 
 ## When NOT to use this
 
