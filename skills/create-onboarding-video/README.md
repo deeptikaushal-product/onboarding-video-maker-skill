@@ -52,7 +52,3 @@ Two patches are applied to `node_modules/@remotion/renderer/dist/`:
 - `port-config.js` — binds servers to `127.0.0.1` only
 
 Re-apply after any `npm install`. See `SKILL.md` → Security hardening for details.
-
----
-
-Built by [@mmt11289](https://github.com/mmt11289) · Forked from [bidah/skill-set](https://github.com/bidah/skill-set) · Repo: [onboarding-video-maker-skill](https://github.com/mmt11289/onboarding-video-maker-skill)
